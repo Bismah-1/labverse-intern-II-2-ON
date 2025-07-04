@@ -1,33 +1,58 @@
-//Task 1: ucFirst("john") == "John";
+let studentList1 = `Students1:
+ * bismah1
+ * samreen2
+ * maida3
+`;
 
-function ucFirst(str) {
-  if (!str) return str;
+alert( `The backslash: \\` ); // The backslash: \ needed 2 cuz 1 is used in tags
 
-  return str[0].toUpperCase() + str.slice(1);
+alert( 'I\'m the Walrus!' ); //\' used to avoid string end or use " " on the sides instead
+
+alert( `cat\n`.length ); // 4 as \n is a single special character....length is just a property here
+
+let str1 = `Hat`;
+
+// the first character
+alert( str1[0] ); // H
+alert( str1.at(0) ); // H
+
+// the last character
+alert( str1[str1.length - 1] ); // t
+alert( str1.at(-1) );
+
+for (let char of "Har") {
+  alert(char); // H,a,t (char becomes "H", then "a", then "t" etc)
 }
 
-alert( ucFirst("john") ); // John
+alert( 'Interface'[3].toUpperCase() ); // 'E'    
 
-//task 2:
+let str2 = 'Widget with id';
 
-function checkSpam(str) {
-  let lowerStr = str.toLowerCase();
+alert( str2.indexOf('Widget') ); // 0, because 'Widget' is found at the beginning
+alert( str2.indexOf('widget') ); // -1, not found, the search is case-sensitive
 
-  return lowerStr.includes('viagra') || lowerStr.includes('xxx');
-}
+alert( str2.indexOf("with") ); // 7, "with" is found at the position 7 
+//looping str.indexof 
 
-alert( checkSpam('buy ViAgRA now') );
-alert( checkSpam('free xxxxx') );
-alert( checkSpam("innocent rabbit") );
+alert( "Hello".includes("Bye") ); // false    ...easy method if we don't need to find position
+//str.endsWith and str.startsWith
 
-//task 3:
+let str = "helped";
+alert( str.slice(0, 4) ); //help as 4th won't be included
+alert(str.slice(4)); //ed as its from 4th to the end
+alert(str.slice (-4,-1));   //lpe   as -1 position won't be counted in
+alert( str.slice(4, 0) ); //"" empty as it can't be like this
 
-function truncate(str, maxlength) {
-  return (str.length > maxlength) ?
-    str.slice(0, maxlength - 1) + '…' : str;
-}
+alert(str.substring(4,2)); //lp
+alert(str.substring(2,4)); //lp   negative arguments are not supported here
 
-//tak 4:
+//for str.substr it has (start, length) in it but isn't suppored here
+//str.codePointAt(pos) Returns a decimal number representing the code for the character at position 
+//String.fromCodePoint(code) Creates a character by its numeric code
+//str.trim() – removes (“trims”) spaces from the beginning and end of the string.
+//str.repeat(n) – repeats the string n times.
+
+//SANDBOX TASK:
 function extractCurrencyValue(str) {
-  return +str.slice(1);
+  return +str.slice(1); // Removes the first character (the dollar sign) and converts to number and use 1 and + cuz $ isn't number
 }
