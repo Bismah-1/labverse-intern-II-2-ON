@@ -32,5 +32,35 @@ alert( 9999999999999999 ); // shows 10000000000000000
 //0 and -0 are treated as the same
 
 //isNan and isfinite
-alert( isNaN(4)); // 
+
+alert( isNaN(4)); //
+alert( isFinite("15") ); // true
+alert( isFinite("str") ); // false ,its NaN
+
+let num = +prompt("Enter a number", '');
+
+// will be true unless you enter Infinity, -Infinity or not a number
+alert( isFinite(num) );                    //TO VALIDATE IF A NUM IS FINITE
+
+alert( Number.isNaN("str") ); // false, because "str" belongs to the string type, not the number type
+alert( isNaN("str") ); // true, because There is no number specification with is NaN
+
+alert( Number.isFinite("662") ); // false, because "123" belongs to the string type, not the number type
+alert( isFinite("662") ); // true, because isFinite converts string "123" into a number 123
+//object.is compares values === especially used for nan===nan and 0=-0 as it gives right result true and false
+//object.is(a,b) is same as a===b and object.is is also called 'samevalue' internally
+
+alert( +"60rems" ); // NaN    + or Number() is strict. If a value is not exactly a number, it fails
+//so parseint and parse float are used to extract numbers and floats out
+alert( parseFloat('6.6.4') ); // 6.6 the second point stops the reading
+alert( parseInt('a123') ); // NaN
+//parseInt(str, radix)   radix tells us str base e.g
+alert( parseInt('2v4', 36) ); // 3712
+
+alert( Math.random() ); // 0.12345678 (any random numbers btw 0 and 1)
+alert( Math.max(1, 5, -2, 0, -6) ); // 5
+alert( Math.min(1, 8, 6) ); // 1
+alert( Math.pow(2, 16) ); // 2 in power 16 = 65536  Math.pow(n, power)
+
+
 
