@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Webpage</title>
+    <style>
+        #secret-box {
+            display: none;
+            background-color: lightyellow;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+  
+    <h1 id="main-heading">Original Heading</h1>               <!--Change Heading Text -->
+
+    
+    <button id="color-button">Click me to change color</button>    <!-- Button Color Changer -->
+
+    
+    <img id="my-image" src="project.png" alt="Placeholder Image">    <!--  Image Source Updater -->
+
+    <button id="change-image">Change Image</button>
+
+    <ul id="my-list">
+        <li>Item 1</li>
+        <li>Item 2</li>                  <!-- Add List Item -->
+    </ul>
+    <button id="add-item">Add New Item</button>
+
+    <div id="secret-box">
+        <p>This is a secret box!</p>            <!--  Toggle Visibility -->
+    </div>
+    <button id="toggle-button">Toggle Secret Box</button>
+
+   
+    <script>
+        window.onload = function() {
+           
+            let heading = document.getElementById('main-heading');
+            heading.textContent = "Welcome to My Interactive Page!";     // Change Heading Text
+
+       
+            let colorButton = document.getElementById('color-button');
+            colorButton.onclick = function() {                            // Button Color Changer (Click event added)
+                colorButton.style.backgroundColor = 'lightblue';  // Changes background on click
+            };
+
+            
+            let image = document.getElementById('my-image');
+            let changeImageButton = document.getElementById('change-image');   // Image Source Updater
+            
+            changeImageButton.onclick = function() {
+                image.src = "contact.png";             // New image URL
+            };
+
+            
+            let addItemButton = document.getElementById('add-item');
+            let list = document.getElementById('my-list');               // Add List Item
+            
+            addItemButton.onclick = function() {
+                let newItem = document.createElement('li');
+                newItem.textContent = "New Item Added";
+                list.appendChild(newItem);
+            };
+
+          
+            let secretBox = document.getElementById('secret-box');
+            let toggleButton = document.getElementById('toggle-button');      // Toggle Visibility
+            
+            toggleButton.onclick = function() {
+               
+                if (secretBox.style.display === 'none') {
+                    secretBox.style.display = 'block';
+                } else {
+                    secretBox.style.display = 'none';                  
+                }
+            };
+        };
+    </script>
+</body>
+</html>
+
