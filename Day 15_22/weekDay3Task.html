@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Examples</title>
+</head>
+<body>
+    
+    <h1 id="click-count">Clicks: 0</h1>                                    <!-- Click counter -->
+    <button id="increment-button">Increment Clicks</button>
+
+    <br><br>
+
+    
+    <input type="text" id="my-input" placeholder="Type something here...">       <!-- Text input display -->
+    <p id="display-text"></p>
+
+    <br><br>
+
+    <div id="hover-area" style="width: 100px; height: 100px; background-color: lightgray;">         <!-- alert when mouse goes over -->
+        Hover over me! 
+    </div>
+
+    <br><br>
+
+    
+    <form id="user-form">
+        <label for="username">Username: </label>
+        <input type="text" id="username" name="username">                   
+        <button type="submit">Submit</button>                         <!-- Form submission -->
+    </form>
+
+    <br><br>
+
+
+    <div id="button-container">
+        <button class="remove-btn">Button 1</button>
+        <button class="remove-btn">Button 2</button>                    <!-- Dynamic button remover -->
+        <button class="remove-btn">Button 3</button>
+    </div>
+
+    
+    <script>
+      
+        let clickCount = 0;
+        const clickCountDisplay = document.getElementById('click-count');
+        const incrementButton = document.getElementById('increment-button')    // Click counter
+        incrementButton.addEventListener('click', function() {
+            clickCount++;
+            clickCountDisplay.textContent = "Clicks: " + clickCount;
+        });
+
+      
+        const myInput = document.getElementById('my-input');
+        const displayText = document.getElementById('display-text');                 // Text input display
+
+        myInput.addEventListener('input', function() {
+            displayText.textContent = myInput.value;
+        });
+
+
+        const hoverArea = document.getElementById('hover-area');                      //Alert when mouse comes over
+
+        hoverArea.addEventListener('mouseover', function() {
+            alert('You hovered over me!');
+        });
+
+        hoverArea.addEventListener('mouseout', function() {
+            console.log('Mouse left the hover area!');
+        });
+
+        const userForm = document.getElementById('user-form');                    // Form submission
+        const usernameInput = document.getElementById('username');
+
+        userForm.addEventListener('submit', function(event) {
+            event.preventDefault();                                        // to stop the form from submitting on its own
+            console.log('Username submitted:', usernameInput.value); 
+        });
+                                       
+        const buttonContainer = document.getElementById('button-container');        // Dynamic button remover
+
+        buttonContainer.addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('remove-btn')) {
+                event.target.remove();
+            }
+        });
+    </script>
+</body>
+</html>
