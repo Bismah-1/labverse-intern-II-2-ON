@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+<h2>Amazing Images</h2>
+<div>
+    <ul id="images">
+        <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/33238710/pexels-photo-33238710.jpeg" alt="photoshop"></li> 
+        <li><img width="200px" id="tree" src="https://images.pexels.com/photos/33299599/pexels-photo-33299599.jpeg" alt=""></li> 
+        <li><img width="200px" id="house" src="https://images.pexels.com/photos/30387220/pexels-photo-30387220.jpeg" alt=""></li>
+
+        <li><a style="color: aliceblue;"href="https://www.google.com/" id=google>Google</a></li>
+</ul>
+</div>
+
+</body>  
+<script>//above method of onclick is not recommended, use addEventListener instead
+            //it is only used in react and angular
+//onclick doesn't give you the flexibility to add multiple functions, so it's not recommended
+/*document.getElementById('photoshop').onclick=function(){
+    alert('photoshop');
+}
+//recommended style of using onclick in pure JS 
+document.getElementById('tree').addEventListener('click',function(){
+    alert('tree');
+});// there s also a 3rd parameter which is False, but it is not needed
+
+document.getElementById('photoshop').addEventListener('click',function(e){
+    console.log(e);
+},false);   */                    //e is event object, it contains information about the event that occurred
+                          //gives us browser and environment events
+                          //eg height width time, date, etc.
+//type,timestamp,defaultPrevented,target,toElement, srcelement,currentTarget
+//clientX, clientY, offsetX, screenX, screenY
+//altkey, ctrlKey, shiftKey, metaKey,keyCode          (to see which key is pressed)
+//------------------bubbling events And Event capturing-------------------------
+//bubbling event:events occur from target child element to parent element.....also default false is used
+//event capturing: events occur from parent element to target child element....also true is used
+/*document.getElementById('google').addEventListener('click',function(e){
+    e.stopPropagation(); //this will prevent the event from bubbling up to the parent element
+    alert('Google link clicked');
+},false); //false is used for bubbling event, true is used for event capturing
+document.getElementById('images').addEventListener('click',function(e){
+    alert('House image clicked');
+},false); 
+//event capturing:
+document.getElementById('google').addEventListener('click',function(e){
+    e.preventDefault(); //this will prevent the default action of the link, which is to navigate to the link
+    alert('Google link clicked');
+},true; // true is used for event capturing
+document.getElementById('images').addEventListener('click',function(e){
+    alert('House image clicked');
+},true); 
+//------------------Removing image events-------------------------
+document.getElementById('images').addEventListener('click',function(e){
+    console.log( e.target.parentNode.tagName); //this will give us the tag name of parent element of the target element
+    //1st method
+    const removing= e.target.parentNode; 
+    //removing.remove();
+    //if we click on img tag, its parent li tag will be removed
+    //if we click on li tag like the link or bullet, ul will be removed(all imgs and link gone)
+    //if .parentNode is not used, then clicking on img tag only removes img
+    //2nd method
+    removing.parentNode.removeChild(removing);
+     //this will remove the parent element of the target element
+     //here we are taking parent(li) of target(img) then its parent(ul) and then again the parents child(li) is removed
+     //so if we click on img tag, its parent li tag will be removed
+},false); 
+*/
+//problem here was that clicking on li tag removed the whole ul
+//we only want to remove the img li tag, not the whole ul so we use if
+document.getElementById('images').addEventListener('click',function(e){
+    console.log( e.target.parentNode.tagName); 
+    if(e.target.tagName==='IMG'){    //IMG tag should be capitalized
+        console.log(e.target.id);   //this will show us target img id
+        const removing= e.target.parentNode; 
+        removing.remove();
+    }
+    },false); //now clicking on google or bullet won't remove the whole ul
+</script>
+</html>

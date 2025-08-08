@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM ~ JS</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent= document.querySelector('.parent')
+    //console.log(parent);
+    //console.log(parent.children);//this gives us an html collection similar to arrays so we can also access children like in arrays
+    //console.log(parent.children[0]);//this will give us the first child of parent
+     //  console.log(parent.children[1].innerHTML);//this will give us the text of the first child
+    
+     //now i can use for loop on the children cuz they act like an array giving html collection so
+     for(let i=0; i<parent.children.length; i++){
+        console.log(parent.children[i].innerHTML);
+     }
+     console.log(parent.children[1].style.backgroundColor = 'red');//this will change the background color of the second child to red
+     // we can also go to parent from child (traversing)
+    const dayone= document.querySelector('.day')
+    console.log(dayone); //querySelector will give us the first element with class day
+    console.log(dayone.parentElement);//this will give us the parent of dayone which is parent div
+    console.log(dayone.nextElementSibling);//this will give us the next sibling of dayone which is Tuesday
+//how to gt to see everything in the node lets say for parent cuz it has alot to offer not just 4 children
+console.log(parent.childNodes);    /*NodeList(9) [text, div.day, text, 
+                                   div.day, text, div.day, text, div.day, text]*/  
+                                    //gave me this to include complex tree structure like spaces as text  an everything
+//also browser doesn't count more than 1 line break ,,only that 1 line break it takes it as text
+</script>
+</html>

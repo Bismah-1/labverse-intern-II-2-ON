@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM2</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    document.createElement('div');
+    const div=document.createElement('div');
+    console.log(div);         //<div></div>
+    //now passing attributes
+    div.className='ABC';
+    div.id=Math.round(Math.random()*10+1)
+   // To make your own custom attribute , give it a key and its value
+    div.setAttribute('title','custom')
+    div.style.backgroundColor='red';
+    //to add text to div , there are 2 ways, 
+    div.innerHTML='Hello World ';      //1st method
+const text= document.createTextNode('Hello world');
+div.appendChild(text); //2nd method, this will add text to the div
+
+//to add this div on document
+document.body.appendChild(div); //this will add the div to the body of the document
+</script>
+</html>
